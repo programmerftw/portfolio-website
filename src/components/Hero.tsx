@@ -10,7 +10,7 @@ const Hero = () => {
             Hey, This is Ujjwal Balaji! 👋
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-            I'm a 2024 graduate from SRM University, Sonepat, with a degree in Computer Science and Engineering (CSE), specializing in Artificial Intelligence and Data Science. I'm passionate about applying AI and data-driven techniques to solve real-world problems. Currently, I'm exploring opportunities in AI, NLP, and Machine Learning, while honing my skills through various full stack projects and contributions.
+            I'm a 2024 graduate from SRM University, Sonepat, Delhi-NCR with a degree in Computer Science and Engineering (CSE), specializing in Artificial Intelligence and Data Science. I'm passionate about applying AI and data-driven techniques to solve real-world problems. Currently, I'm exploring opportunities in AI, NLP, and Machine Learning, while honing my skills through various full stack projects and contributions.
 
 
           </p>
