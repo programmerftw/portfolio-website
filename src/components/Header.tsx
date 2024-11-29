@@ -6,7 +6,7 @@ const Header = () => {
   const { isDark, toggleTheme } = useTheme();
 
   const handleResumeDownload = () => {
-    const resumeUrl = '/Ujjwal resume.pdf';
+    const resumeUrl = '/Ujjwal Resume.pdf';
     window.open(resumeUrl, '_blank');
   };
 
