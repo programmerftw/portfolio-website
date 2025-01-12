@@ -4,7 +4,7 @@ const experiences = [
   {
     company: "Vision Valt",
     position: "Machine Learning Intern (Remote)",
-    period: "Aug 2024 - Present",
+    period: "Aug 2024 - Nov 2024",
     description: "Developed an MVP chatbot for personalized travel recommendations, optimizing model efficiency and user engagement using NLP techniques. Integrated Hugging Face models, Spacy, and NLTK to enhance conversational capabilities and deliver natural language understanding and generation.",
   },
   {
