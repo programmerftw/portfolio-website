@@ -1,4 +1,4 @@
-
+import { motion } from 'framer-motion';
 import SkillCard from './SkillCard';
 
 const skillCategories = [
@@ -88,23 +88,47 @@ const skillCategories = [
   }
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
 const Skills = () => {
-    return (
-      <section id="skills" className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Skills & Technologies</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            {skillCategories.map((category, index) => (
-              <SkillCard
-                key={index}
-                title={category.title}
-                skills={category.skills}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  };
-  
-  export default Skills;
+  return (
+    <section id="skills" className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-5xl mx-auto px-4">
+        <motion.h2 
+          className="text-3xl font-bold text-gray-900 dark:text-white mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Skills & Technologies
+        </motion.h2>
+        <motion.div 
+          className="grid md:grid-cols-2 gap-12"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {skillCategories.map((category, index) => (
+            <SkillCard
+              key={index}
+              title={category.title}
+              skills={category.skills}
+            />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
