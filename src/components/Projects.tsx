@@ -1,6 +1,8 @@
 
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
+import { useEffect } from 'react';
+
 
 const projects = [
   {
@@ -46,6 +48,32 @@ const projects = [
 ];
 
 const Projects = () => {
+  const controls = useAnimationControls();
+  
+  useEffect(() => {
+    const totalWidth = projects.length * (400 + 32); // card width + gap
+    
+    const animateCarousel = async () => {
+      await controls.start({
+        x: [-100, -totalWidth],
+        transition: {
+          x: {
+            duration: 20,
+            ease: "linear",
+          },
+        },
+      });
+      
+      // Instantly reset position without animation
+      controls.set({ x: -100 });
+      
+      // Restart the animation
+      animateCarousel();
+    };
+    
+    animateCarousel();
+  }, [controls]);
+
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
@@ -58,84 +86,98 @@ const Projects = () => {
         >
           From Ideas to Execution: My Projects
         </motion.h2>
-        <motion.div 
-          className="flex gap-8"
-          animate={{
-            x: [-100, -1000],
-            transition: {
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
-            },
-          }}
-        >
-          {[...projects, ...projects].map((project, index) => (
-            <motion.div
-              key={index}
-              className="flex-none w-[400px] bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-            >
-              <motion.div 
-                className="relative h-48 overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github size={18} />
-                    <span>GitHub</span>
-                  </motion.a>
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink size={18} />
-                    <span>Demo</span>
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        
+        <div className="relative overflow-hidden">
+          <motion.div 
+            className="flex gap-8"
+            animate={controls}
+          >
+            {/* First set of projects */}
+            {projects.map((project, index) => (
+              <ProjectCard key={`first-${index}`} project={project} />
+            ))}
+            
+            {/* Duplicate set for seamless loop */}
+            {projects.map((project, index) => (
+              <ProjectCard key={`second-${index}`} project={project} />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
+  );
+};
+
+// Extracted ProjectCard component for cleaner code
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github: string;
+  demo: string;
+}
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <motion.div
+      className="flex-none w-[400px] bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+    >
+      <motion.div 
+        className="relative h-48 overflow-hidden"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.map((tech, techIndex) => (
+            <span
+              key={techIndex}
+              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-4">
+          <motion.a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Github size={18} />
+            <span>GitHub</span>
+          </motion.a>
+          <motion.a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ExternalLink size={18} />
+            <span>Demo</span>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
