@@ -47,6 +47,78 @@ const projects = [
   }
 ];
 
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github: string;
+  demo: string;
+}
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <motion.div
+      className="flex-none w-[400px] bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+    >
+      <motion.div 
+        className="relative h-48 overflow-hidden"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.technologies.map((tech, techIndex) => (
+            <span
+              key={techIndex}
+              className="px-4 py-1.5 bg-gradient-to-r from-blue-500/10 to-blue-500/5 dark:from-blue-400/20 dark:to-blue-400/10 border border-blue-100 dark:border-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium tracking-wide shadow-sm hover:shadow-md transition-shadow"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-4">
+          <motion.a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Github size={18} />
+            <span>GitHub</span>
+          </motion.a>
+          <motion.a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ExternalLink size={18} />
+            <span>Demo</span>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects = () => {
   const controls = useAnimationControls();
   
@@ -58,7 +130,7 @@ const Projects = () => {
         x: [-100, -totalWidth],
         transition: {
           x: {
-            duration: 20,
+            duration: 40,
             ease: "linear",
           },
         },
@@ -105,79 +177,6 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-// Extracted ProjectCard component for cleaner code
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  github: string;
-  demo: string;
-}
-
-const ProjectCard = ({ project }: { project: Project }) => {
-  return (
-    <motion.div
-      className="flex-none w-[400px] bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
-      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-    >
-      <motion.div 
-        className="relative h-48 overflow-hidden"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-          {project.title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech, techIndex) => (
-            <span
-              key={techIndex}
-              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Github size={18} />
-            <span>GitHub</span>
-          </motion.a>
-          <motion.a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ExternalLink size={18} />
-            <span>Demo</span>
-          </motion.a>
-        </div>
-      </div>
-    </motion.div>
   );
 };
 

@@ -45,6 +45,67 @@ const blogs = [
   }
 ];
 
+interface Blog {
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  image: string;
+  link: string;
+}
+
+const BlogCard = ({ blog }: { blog: Blog }) => {
+  return (
+    <motion.a
+      href={blog.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-none w-[400px] group"
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+    >
+      <motion.article className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-[500px] flex flex-col">
+        <motion.div 
+          className="relative h-48 flex-shrink-0 overflow-hidden"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </motion.div>
+        <div className="p-6 flex flex-col flex-grow">
+          <div className="flex justify-between items-center mb-4">
+            <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
+              {blog.date}
+            </span>
+            <span className="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full text-sm font-medium">
+              {blog.readTime}
+            </span>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            {blog.title}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 flex-grow leading-relaxed">
+            {blog.excerpt}
+          </p>
+          <div className="flex items-center text-blue-600 dark:text-blue-400 mt-auto group-hover:translate-x-2 transition-transform duration-300">
+            <span className="font-medium mr-2">Read Article</span>
+            <motion.div
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <ArrowUpRight size={20} className="stroke-2" />
+            </motion.div>
+          </div>
+        </div>
+      </motion.article>
+    </motion.a>
+  );
+};
+
 const Blogs = () => {
   const controls = useAnimationControls();
   
@@ -103,63 +164,6 @@ const Blogs = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-// Extracted BlogCard component for cleaner code
-interface Blog {
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  image: string;
-  link: string;
-}
-
-const BlogCard = ({ blog }: { blog: Blog }) => {
-  return (
-    <motion.a
-      href={blog.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex-none w-[400px] group"
-      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-    >
-      <motion.article className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-        <motion.div 
-          className="relative h-48 overflow-hidden"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-sm text-blue-600 dark:text-blue-400">{blog.date}</span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">{blog.readTime}</span>
-          </div>
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-            {blog.title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            {blog.excerpt}
-          </p>
-          <div className="flex items-center text-blue-600 dark:text-blue-400">
-            <span className="mr-2">Read More</span>
-            <motion.div
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <ArrowUpRight size={20} />
-            </motion.div>
-          </div>
-        </div>
-      </motion.article>
-    </motion.a>
   );
 };
 
