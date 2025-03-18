@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
+  
   const scrollToNext = () => {
     const experienceSection = document.getElementById('experience');
     if (experienceSection) {
@@ -10,8 +11,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen flex flex-col items-center justify-between bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 pt-16 sm:pt-20">
+      <div className="max-w-6xl w-full mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,11 +41,11 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="space-x-4"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full"
           >
             <motion.a
               href="#experience"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-700 transition-all duration-300"
+              className="flex-1 text-center bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-700 transition-all duration-300"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -52,7 +53,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="#projects"
-              className="inline-block bg-transparent border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+              className="flex-1 text-center bg-transparent border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -89,9 +90,9 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      {/* Scroll down indicator */}
+      {/* Scroll down indicator - centered for all devices */}
       <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+        className="flex flex-col items-center cursor-pointer z-10 mb-8 mt-auto"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
