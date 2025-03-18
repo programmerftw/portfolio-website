@@ -34,6 +34,14 @@ const blogs = [
     readTime: "4 min read",
     image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1741546255495/5987c21c-7a25-499c-b8c6-7f1193886621.webp?auto=compress,format&format=webp",
     link: "https://chatteronai.hashnode.dev/building-effective-agents-a-comprehensive-guide"
+  },
+  {
+    title: "How LinkedIn Improved Latency by 60%: A Deep Dive into Their Serialisation Strategy",
+    excerpt: "LinkedIn, one of the largest professional networking platforms, recently achieved a 60% reduction in latency by making a strategic change in their data serialisation format. ",
+    date: "March 18, 2025",
+    readTime: "4 min read", 
+    image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1742288877129/fa5906d1-78a7-4ca8-a89e-df77716074af.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    link: "https://ujjwal18.hashnode.dev/how-linkedin-improved-latency-by-60-a-deep-dive-into-their-serialisation-strategy"
   }
 ];
 
