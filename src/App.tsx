@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Blogs from './components/Blogs';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ function App() {
       <AnimatePresence>
         {loading && <LoadingScreen />}
       </AnimatePresence>
+      <CustomCursor />
       <div className="min-h-screen bg-white dark:bg-gray-900">
         <Header />
         <main>

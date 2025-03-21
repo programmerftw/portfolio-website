@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Show default cursor for touch devices */
+@media (hover: none) {
+  * {
+    cursor: auto !important;
+  }
+}
