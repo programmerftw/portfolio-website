@@ -20,6 +20,10 @@ const skillCategories = [
       {
         name: "Next.js",
         logo: "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg"
+      },
+      {
+        name: "TypeScript",
+        logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
       }
     ]
   },
@@ -37,6 +41,14 @@ const skillCategories = [
       {
         name: "Python",
         logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+      },
+      {
+        name: "Node.js",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+      },
+      {
+        name: "Express",
+        logo: "https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
       }
     ]
   },
@@ -58,6 +70,10 @@ const skillCategories = [
       {
         name: "Rasa",
         logo: "/logos/rasa.svg"
+      },
+      {
+        name: "NumPy",
+        logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg"
       }
     ]
   },
