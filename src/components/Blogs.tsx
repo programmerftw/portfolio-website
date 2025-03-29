@@ -42,6 +42,14 @@ const blogs = [
     readTime: "4 min read", 
     image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1742288877129/fa5906d1-78a7-4ca8-a89e-df77716074af.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
     link: "https://ujjwal18.hashnode.dev/how-linkedin-improved-latency-by-60-a-deep-dive-into-their-serialisation-strategy"
+  },
+  {
+    title: "MCP Servers Explained: HTTPS Protocol for LLMs",
+    excerpt: "MCP acts as a universal bridge between AI models and external tools, databases, or APIs",
+    date: "March 29, 2025",
+    readTime: "4 min read",
+    image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1743248364592/24d44bfd-ade5-45e6-b072-50fcae0bd34c.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    link: "https://chatteronai.hashnode.dev/mcp-servers-explained-https-protocol-for-llms"
   }
 ];
 
