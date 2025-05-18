@@ -50,6 +50,14 @@ const blogs = [
     readTime: "4 min read",
     image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1743248364592/24d44bfd-ade5-45e6-b072-50fcae0bd34c.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
     link: "https://chatteronai.hashnode.dev/mcp-servers-explained-https-protocol-for-llms"
+  },
+  {
+    title: "Amazon Aurora: A Deep Dive into Cloud-Native Database Architecture",
+    excerpt: "Amazon Aurora stands out as a revolutionary system that redefines how relational databases operate at scale.",
+    date: "May 18, 2025",
+    readTime: "3 min read",
+    image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1747509004196/3ea635f4-a4a0-4665-9cc5-2bf4aab4e0be.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    link: "https://ujjwal18.hashnode.dev/amazon-aurora-a-deep-dive-into-cloud-native-database-architecture"
   }
 ];
 
