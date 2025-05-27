@@ -3,6 +3,19 @@ import { Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
+    company: "Freelance Developer",
+    position: "Full Stack Developer",
+    location: "Remote",
+    period: "Feb 2025 - Present",
+    description: "As a Freelance Full Stack Developer, I have been working on various client projects and contributing to open-source projects, online hackathons, and freelancing. My expertise lies in focusing on building scalable web applications using React, Node.js, Next.js, Express, TypeScript, AWS, MongoDB, Docker and Vercel.",
+    skills: ["React", "Node.js", "Next.js", "Express", "TypeScript", "AWS", "MongoDB", "Docker"],
+    achievements: [
+      "Collaborated on multiple client projects as a full-stack developer using React, Node.js and Next.js",
+      "Integrated Gen AI features to enhance user experience and application functionality",
+      "Handled end-to-end development with performance optimization and cloud deployment on AWS, Vercel."
+    ]
+  },
+  {
     company: "Vision Valt",
     position: "Machine Learning Intern",
     location: "Remote",
@@ -27,7 +40,7 @@ const experiences = [
       "Conducted load testing with Locust to improve system performance",
       "Developed a conversational AI chatbot using Rasa AI for user interaction"
     ]
-  },
+  }
 ];
 
 const container = {

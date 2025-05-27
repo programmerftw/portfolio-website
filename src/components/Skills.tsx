@@ -49,6 +49,10 @@ const skillCategories = [
       {
         name: "Express",
         logo: "https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
+      },
+      {
+        name: "FastAPI",
+        logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg"
       }
     ]
   },
