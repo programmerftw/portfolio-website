@@ -58,6 +58,14 @@ const blogs = [
     readTime: "3 min read",
     image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1747509004196/3ea635f4-a4a0-4665-9cc5-2bf4aab4e0be.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
     link: "https://ujjwal18.hashnode.dev/amazon-aurora-a-deep-dive-into-cloud-native-database-architecture"
+  },
+  {
+    title: "Understanding Amazon Aurora's Durability: The Role of Quorum-Based Replication",
+    excerpt: "Amazon Aurora ensures durability through quorum-based replication, 6-way replication, and segmented storage for resilient cloud-scale databases",
+    date: "June 3, 2025",
+    readTime: "3 min read",
+    image: "https://daxg39y63pxwu.cloudfront.net/images/blog/amazon-aurora/Amazon_Aurora.webp",
+    link: "https://ujjwal18.hashnode.dev/understanding-amazon-auroras-durability-the-role-of-quorum-based-replication?ref=twitter-share"
   }
 ];
 
