@@ -78,6 +78,10 @@ const skillCategories = [
       {
         name: "NumPy",
         logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg"
+      },
+      {
+        name: "Langraph",
+        logo: "/logos/langgraph.png"
       }
     ]
   },
