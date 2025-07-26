@@ -35,7 +35,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            I'm a 2024 graduate from SRM University, Sonepat, Delhi-NCR with a degree in Computer Science and Engineering (CSE), specializing in Artificial Intelligence and Data Science. I'm passionate about applying AI and data-driven techniques to solve real-world problems. Currently, I'm exploring opportunities in AI, NLP, and Machine Learning, while honing my skills through various full stack projects and contributions.
+            I'm a 2024 Computer Science Undergrad from SRM University, Sonepat, Delhi-NCR, specializing in AI & Data Science. Currently working at Genpact as a Lead Associate – EUC, and passionately learning AI, NLP, and ML, while building full stack projects to sharpen my skills.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}

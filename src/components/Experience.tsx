@@ -6,7 +6,7 @@ const experiences = [
     company: "Freelance Developer",
     position: "Full Stack Developer",
     location: "Remote",
-    period: "Feb 2025 - Present",
+    period: "May 2024 - May 2025",
     description: "As a Freelance Full Stack Developer, I have been working on various client projects and contributing to open-source projects, online hackathons, and freelancing. My expertise lies in focusing on building scalable web applications using React, Node.js, Next.js, Express, TypeScript, AWS, MongoDB, Docker and Vercel.",
     skills: ["React", "Node.js", "Next.js", "Express", "TypeScript", "AWS", "MongoDB", "Docker"],
     achievements: [
