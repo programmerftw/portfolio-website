@@ -35,7 +35,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            I'm a 2024 Computer Science Undergrad from SRM University, Sonepat, Delhi-NCR, specializing in AI & Data Science. Currently working at Genpact as a Lead Associate – EUC, and passionately learning AI, NLP, and ML, while building full stack projects to sharpen my skills.
+            I'm a 2024 Computer Science Undergrad from SRM University, Sonepat, Delhi-NCR, specializing in AI & Data Science. Currently working at Genpact as a Lead Associate – EUC, and passionately learning AI, NLP, and ML, while building full stack projects to sharpen my skills. I enjoy reading and writing tech blogs and stay driven by a constant curiosity for all things tech.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
